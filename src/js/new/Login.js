@@ -4,10 +4,11 @@ const saisirmdp = document.querySelector(".saisirmdp");
 const saisirmdp2 = document.querySelector(".saisirmdp2")
 const testbutton = document.querySelector(".test")
 const form = document.querySelector("form")
+const idError = document.querySelector(".idError")
 
 form.onsubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:5000/login', {
+    const response = await fetch(' http://localhost:5000/login', {
       method: 'POST',
       credentials: "include",
       body: JSON.stringify({email : (mail.value), password: (password.value)}),
@@ -17,9 +18,7 @@ form.onsubmit = async (e) => {
     const result = await response;
     console.log(result.status)
     if (result.status !== 200) {
-        //idError.styl.display = "block"
-        saisirmdp.style.display = "block";
-        console.log('hjneez');
+        idError.style.display = "block";
 
     }
     else{
@@ -29,7 +28,6 @@ form.onsubmit = async (e) => {
     
     
 }
-
 testbutton.addEventListener('click' , event =>{
 if(mail.value == ""){
     saisirmdp.style.display = "block";
