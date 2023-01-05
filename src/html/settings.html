@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/All.css" />
+    <title>Settings</title>
+</head>
+<body>
+    <header>
+        <h1 class="titre">Adresse e-mail</h1>
+        <p> <strong>Adresse e-mail actuelle :</strong> saad@gmail.com</p>
+    </header>
+    <main>
+    <div class="box">
+            <form action="https://jsonplaceholder.typicode.com/users" method="post">
+                <div class="champs">
+                <label for="e-mail">Nouvelle adresse e-mail</label>
+                <input type="email"  name="e-mail" placeholder="mail@provider.com" required autocomplete="off"/>
+            </div>
+        <div class="champs">
+                <label for="e-mail">Confirmer l’adresse e-mail</label>
+                <input type="email" name="e-mail" placeholder="mail@provider.com" required autocomplete="off"/>
+        </div>
+        <button class = "test" type="submit">Modifier l’adresse e-mail</button>
+        <h2 class="titre2">Mot de passe</h2>
+        <div class="champs">
+                <label for="password">Mot de passe actuel</label>
+                <input type="password"  name="password" placeholder="password" required/>
+        </div>
+        <div class="champs">
+            <label for="password">Nouveau mot de passe</label>
+            <input type="password"  name="password" placeholder="password" required/>
+    </div>
+    <div class="champs">
+        <label for="password">Confirmer le nouveau mot de passe</label>
+        <input type="password"  name="password" placeholder="password" required/>
+</div>
+        <button class = "test" type="submit">Modifier le mot de passe</button>
+            </form>
+    </div>
+</main>
+<footer></footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/All.css" />
+    <script type="module" src="/js/Login.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="box">
+            <form action="" method="post">
+                <div class="champs">
+                    <label for="e-mail">Adresse e-mail</label>
+                    <input class="obligatoire1" type="email"  name="email" placeholder="mail@provider.com" required autocomplete="off"/>
+                    <p class="messError , saisirmdp">Veuillez renseigner une adresse e-mail</p>
+                </div>
+                <div class="champs">
+                    <label for="password">Mot de passe</label>
+                    <input class ="obligatoire2" type="password"  name="password" placeholder="password" required/>
+                    <p class="messError , saisirmdp2">Veuillez renseigner un mot de passe</p>
+                </div>
+                <button class = "test" type="submit">Connexion</button>
+            </form>
+
+            <div>
+                <a class="a" href="/ForgottenPassword.html">J’ai oublié mon mot de passe</a>
+            </div>
+
+            <div>
+                <a class ="a" href="/Signup.html">Pas encore de compte ? Inscrivez-vous !</a>
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+</html>
