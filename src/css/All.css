@@ -94,3 +94,11 @@ form{
   font-size: 24px;
   margin: 0;
 }
+.idError{
+  font-family: 'Roboto';
+  padding-top: 14px;
+  color: #D63031;
+  display: none;
+  margin: 0;
+  text-align: center;
+}
