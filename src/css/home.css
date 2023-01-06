@@ -203,7 +203,7 @@ h3, .taskStep, .taskDeadline,.taskNote{
 .menuOpened > .parametre{
     margin: auto 19px 24px 19px;
 }
-.menuOpened > .parametre > a, .menuOpened > .deconnexion > a{
+.menuOpened > .parametre > a, .logoutButton{
     align-self: center;
     text-decoration: none;
     color: black;

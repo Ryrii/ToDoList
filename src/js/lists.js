@@ -1,12 +1,14 @@
 
 
 export const init = async () => {
+
     try {
         const response = await fetch("http://localhost:5000/list", {
             method: "GET",
             credentials: "include",
             headers:{"Content-Type": "application/json"}
           })
+
         const lists = await response.json()
         const root = document.querySelector(".listes")
         root.innerHTML = ""

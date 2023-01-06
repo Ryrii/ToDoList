@@ -25,7 +25,7 @@ export const addList = ()=>{
     const newList = document.querySelector(".addListInput")
     // console.log(addList);
     addList.addEventListener("click", async ()=>{
-        console.log('hi');
+        // console.log('hi');
         if(newList.value!==""){
           await Lists.addList(newList.value)
           await Lists.init()
@@ -48,7 +48,7 @@ export const list= ()=>{
         // ModifyTask.init("2","2")
         
         if(window.innerWidth<1024){
-            console.log('hi');
+            // console.log('hi');
             fermer(menuOpened)
         }
       })

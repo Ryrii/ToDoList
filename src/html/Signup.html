@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/All.css" />
+    <link rel="stylesheet" href="../css/All.css" />
+    <script type="module" src="../js/new/Signup.js"></script>
+    <title>Signup</title>
+</head>
+<body>
+    <header></header>
+    <main>
+    <div class="box">
+            <form action=" " method="POST">
+                <div class="champs">
+                <label for="email">Adresse e-mail</label>
+                <input class = "obligatoire1" type="email" id="email" name="email" placeholder="mail@provider.com" required autocomplete="off"/>
+                <p class="messError , saisirmdp">Veuillez renseigner une adresse e-mail</p>
+            </div>
+        <div class="champs">
+                <label for="password">Mot de passe</label>
+                <input class="mdp1 , obligatoire2" type="password" id="password" name="password" placeholder="password" required />
+                <p class="messError , saisirmdp2">Veuillez renseigner un mot de passe</p>
+        </div>
+        <div class="champs">
+                <label for="password">Répéter le mot de passe</label>
+                <input class="mdp2" type="password"  name="password" placeholder="password" required/>
+                <p class="messError , mdpDifferent">Les mots de passe ne correspondent pas</p>
+        </div>
+        <button class = "test" type="submit">Inscription</button>
+        <p class="messError2 , saisirmdp">Un mail de confirmation vous a été envoyé</p>
+            </form>
+    </div>
+</main>
+<footer></footer>
+</body>
+</html>
