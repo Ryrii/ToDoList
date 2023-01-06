@@ -19,6 +19,7 @@ form.onsubmit = async (e) => {
     console.log(result.status)
     if (result.status !== 200) {
         idError.style.display = "block";
+        password.value =""
 
     }
     else{
