@@ -18,7 +18,7 @@ form.onsubmit = async (e) => {
     const result = await response;
     console.log(result.status)
     if (result.status !== 200) {
-        idError.style.display = "block";
+       idError.style.display = "block";
         password.value =""
 
     }
@@ -32,6 +32,7 @@ form.onsubmit = async (e) => {
 testbutton.addEventListener('click' , event =>{
 if(mail.value == ""){
     saisirmdp.style.display = "block";
+    idError.style.display = "none";
 }
 else{
     saisirmdp.style.display = "none"
@@ -41,6 +42,7 @@ else{
 testbutton.addEventListener('click' , event =>{
     if(password.value == ""){
         saisirmdp2.style.display = "block";
+        idError.style.display = "none";
     }
     else{
         saisirmdp2.style.display = "none"
