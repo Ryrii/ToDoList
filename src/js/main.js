@@ -36,31 +36,20 @@ closeMenu.onclick = () => {fermer(menuOpened);}
 
 function reportWindowSize() {
   if(window.innerWidth>1024 && menuOpened.style.display==="none"){
-    // console.log(menuOpened.style.display);
     ouvrir(menuOpened)
   }
 
 }
 
+
 window.onresize = reportWindowSize;
 // console.log(window.innerWidth);
 //INITIALISER LISTE 
-// const queryString = window.location.search;
-// console.log (queryString);
+
 await Lists.init()
 Listener.addList()
 Listener.list()
-// export const taskDeleteFirst=()=>{
-//   const taskDeleters = document.querySelectorAll(".taskDelete")
-//   taskDeleters.forEach(taskDelete=>
-//       taskDelete.addEventListener("click", async ()=>{
-//           const taskId = taskDelete.closest('.task').dataset.id
-//           const listId = taskDelete.closest('.task').dataset.listId
-//           await Tasks.deleteTask(taskId)
-//           taskInit()
-//       })
-//       )
-// }
+
 export  const taskInit = async ()=>{
   await Tasks.init("")
   Tasks.checkTask()

@@ -19,6 +19,10 @@ openMenu.onclick = () => {ouvrir(menuOpened);}
 closeMenu.onclick = () => {fermer(menuOpened);}
 
 let accueil=true
+const listNameClick = ()=>{
+  console.log('listNameClick()');
+}
+window.listNameClick = listNameClick; 
 
 export const addList = ()=>{
     const addList = document.querySelector(".addList")

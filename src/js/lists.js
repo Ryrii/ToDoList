@@ -27,6 +27,7 @@ const createList = (list) => {
     const listName = document.createElement('p')
     listName.classList.add('listName')
     listName.textContent = list.name
+    listName.setAttribute('onclick','listNameClick()')
     const listNbTask = document.createElement('p')
     if (list.Tasks.length != 0) {
         listNbTask.classList.add('listNbTask')
