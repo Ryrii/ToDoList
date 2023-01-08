@@ -1,8 +1,9 @@
-export const main = (title)=>{
+export const main = (title,listId)=>{
     const page = document.querySelector('.page')
+    page.dataset.listId = listId
     page.innerHTML = `
     <div class="pageHeader">
-        <h1 class="h1Page"> `+title+`</h1>
+        <h1 class="taskNameTitle"> `+title+`</h1>
         <button class="listDeleteButton , openDeleteList">
             <div class="listDeleteBin"><img src="../logos/listDeleteBin.svg" alt=""></div>
             <p>Supprimer la liste</p>
@@ -12,7 +13,7 @@ export const main = (title)=>{
         
     </ul>
     <div  class="pageNewTask , task">
-        <div class="addNewTask"><img src="../logos/plus.svg" alt=""></div>
+        <div class="addNewTask" onclick="addNewTaskClick()"><img src="../logos/plus.svg" alt=""></div>
         <input  type="text" class="addTaskInput" name="pageNewTask" placeholder="Ajouter une tâche ...">
     </div>
     `
@@ -22,7 +23,7 @@ export const main = (title)=>{
             <h2>Supprimer la liste ?</h2>
             <p>Après avoir été supprimée, une liste ne peut pas être récupérée. Êtes-vous certain(e) de vouloir supprimer la liste “Projet tutoré” ?</p>
             <div class="listDeleteButtons">
-                <div class="listDeleteButton , deleteList">
+                <div class="listDeleteButton , deleteList" onclick="deleteListClick()">
                     <div class="listDeleteBin"><img src="../logos/listDeleteBin.svg" alt=""></div>
                     <p >Supprimer la liste</p>
                 </div>
@@ -45,4 +46,5 @@ export const main = (title)=>{
     cancelButton.addEventListener("click",()=>{
         listDeleteAlertScreen.style.display = "none"
     })
+
 }

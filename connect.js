@@ -97,6 +97,25 @@ addList.addEventListener("click", async (e)=>{
           }
           e.preventDefault();
 })
+const logout = document.querySelector(".logout")
+logout.addEventListener("click", async (e)=>{
+        try {
+            const response = await fetch("http://localhost:5000/logout", {
+                method: "POST",
+                credentials: "include",
+                headers:{"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    name: "newList"
+                })
+              })
+            const data = await response//.json()
+            console.log(data)
+                
+        
+          } catch (err) {
+            console.error(err)
+          }
+})
 
 // const addList2 = document.querySelector(".addList2")
 // const addListInput = document.querySelector(".addListInput")

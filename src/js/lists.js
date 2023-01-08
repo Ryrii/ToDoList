@@ -22,12 +22,12 @@ export const init = async () => {
 const createList = (list) => {
     const elem = document.createElement("li")
     elem.classList.add('list')
-    elem.dataset.id = list.id
+    elem.dataset.listId = list.id
     elem.dataset.name = list.name
     const listName = document.createElement('p')
     listName.classList.add('listName')
     listName.textContent = list.name
-    listName.setAttribute('onclick','listNameClick()')
+    listName.setAttribute('onclick','listNameClick(this)')
     const listNbTask = document.createElement('p')
     if (list.Tasks.length != 0) {
         listNbTask.classList.add('listNbTask')
@@ -38,33 +38,7 @@ const createList = (list) => {
     return elem
 }
 
-//ADD LIST
-// export const addList = ()=>{
-//     const addList = document.querySelector(".addList")
-//     const newList = document.querySelector(".addListInput")
-//     console.log(addList);
-//     addList.addEventListener("click", async ()=>{
-//         console.log('hi');
-//         if(newList.value!==""){
-//             try {
-//                 const response = await fetch("http://localhost:5000/list", {
-//                     method: "POST",
-//                     credentials: "include",
-//                     headers:{"Content-Type": "application/json"},
-//                     body: JSON.stringify({
-//                         name: newList.value
-//                     })
-//                 })
-//                 const data = await response//.json()
-//                 console.log(data)
-//                 init()
-            
-//             } catch (err) {
-//                 console.error(err)
-//             }
-//         }
-//     })
-// }
+//AJOUTER LISTE
 export const addList = async(listName)=>{
     try {
         const response = await fetch("http://localhost:5000/list", {
@@ -84,38 +58,18 @@ export const addList = async(listName)=>{
 }
 
 //SUPPRIMER LISTE
-export const deleteList=(listId)=>{
-    const listDelete = document.querySelector(".deleteList")
-    listDelete.addEventListener("click", async ()=>{
-            try {
-                const response = await fetch("http://localhost:5000/list/"+listId, {
-                    method: "DELETE",
-                    credentials: "include",
-                    headers:{"Content-Type": "application/json"}
-                    })
-                const data = await response//.json()
-                console.log(data)
-                location.reload()  
-                
-                } catch (err) {
-                console.error(err)
-                }
-            
-        })
-
+export const deleteList= async (listId)=>{
+    try {
+        const response = await fetch("http://localhost:5000/list/"+listId, {
+        method: "DELETE",
+        credentials: "include",
+        headers:{"Content-Type": "application/json"}
+    })
+    const data = await response//.json()
+    console.log(data)
+    return response.status
+    } catch (err) {
+        console.error(err)
+    }
 }
 
-//LIST DISPLAY
-
-// export const listDisplay = ()=>{
-//     const myLists = document.querySelectorAll('.list')
-//     myLists.forEach(element => {
-//         element.addEventListener("click", async ()=>{
-//             console.log('hi')
-//             Page.main(element.dataset.name)
-//             deleteList(element.dataset.id)
-//             await Tasks.init(element.dataset.id)
-//             Tasks.addTask(element.dataset.id)
-//         })
-//     })
-// }

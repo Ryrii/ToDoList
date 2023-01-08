@@ -10,17 +10,17 @@
     <!-- <script type="module" src="../js/home.js"></script>
     <script type="module" src="../js/modifyTask.js"></script> -->
     <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/click.js"></script>
 </head>
 <body>
     <header>
         <div class="menu">
             <a class="openMenu" ><img src="../logos/menu.svg" alt=""></a>
-            <h1 class="h1Pae">Accueil / prochaine tâches</h1>
+            <h1 class="h1Page">Accueil / prochaine tâches</h1>
         </div>
 
-        <button onclick="myFunction()">Click me</button>
 
-<script type="module" src="../js/new.js"></script>
+
         
     </header>
     <main>
@@ -32,8 +32,8 @@
                     <a class="closeMenu" href="#"><img src="../logos/close.svg" alt=""></a>
                 </div>
                 <div class="home">
-                    <a href="#"><img src="../logos/home.svg" alt=""></a>
-                    <p>azertyu@gmail.com</p>
+                    <a class="home" ><img src="../logos/home.svg" alt=""></a>
+                    <p class="userMail"></p>
                 </div>
                 <div class="meslistes">
                     <p>Mes listes</p>
@@ -43,18 +43,16 @@
 
                 </ul>
                 <div class="newList">
-                    <div class="addList"><img src="../logos/plusRose.svg" alt=""></div>
+                    <div class="addList" onclick="addListClick()"><img src="../logos/plusRose.svg" alt=""></div>
                     <input  type="text" class="addListInput" name="addListInput" placeholder="Nouvelle liste">          
                 </div>
                 <div class="parametre">
                     <img src="../logos/parametre.svg" alt="">
-                    <a href="../html/settings.html">Paramètres</a>
+                    <a class="settings" href="../html/settings.html">Paramètres</a>
                 </div>
                 <div class="deconnexion">
                     <img src="../logos/deconnexion.svg" alt="">
-                    <form action="http://localhost:5000/logout" method="post">
-                        <button class="logoutButton" href="">Déconnexion</a>
-                    </form>
+                    <button class="logoutButton" href="">Déconnexion</button>
                 </div>
             </div>
             <div class="griser"></div>
@@ -62,7 +60,7 @@
 
     <!-- PAGE -->
         <div class="page" data-list-id="">
-            <h1 class="h1Page">Prochaines tâches</h1>
+            <h1 class="taskNameTitle">Prochaines tâches</h1>
             <ul class="tasks">
 
             </ul>
@@ -108,11 +106,11 @@
                     </div>
                     <h2>Note</h2>
                     <div class="modifyTaskElem note">
-                        <textarea class="taskDescription" name="description" >Quelques détails à propos de cette tâche...</textarea>
+                        <textarea class="taskDescription" name="description" ></textarea>
                     
                     </div>
                     <div class="modifyTaskButtons">
-                        <button class="modifyTaskButton taskSave closeTask" type="submit">Enregistrer</button>
+                        <button class="modifyTaskButton taskSave closeTask" onclick="taskSaveClick()" type="button">Enregistrer</button>
                         <button class="modifyTaskButton closeTask" type="button">Annuler</button>
                     </div>
 

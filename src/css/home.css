@@ -17,7 +17,7 @@ input[type=text]:focus {
 input {
     text-overflow: ellipsis;
 }
-.h1Page{
+.taskNameTitle{
     display: none;
 }
 button{
@@ -97,6 +97,9 @@ h3, .taskStep, .taskDeadline,.taskNote{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.taskStep, .taskDeadline{
+    flex-shrink: 0;
+}
 .check input[type="checkbox"] {
     appearance: none;
     border: 1px solid #ADADAD;
@@ -147,6 +150,12 @@ h3, .taskStep, .taskDeadline,.taskNote{
     display: flex;
     font-weight: 700;
     gap: 14px;
+    
+}
+.userMail{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .menuOpened > .meslistes{
     margin: 0 16px 21px 17px;
@@ -161,13 +170,19 @@ h3, .taskStep, .taskDeadline,.taskNote{
     position: relative;
     top: 50%; 
 }
-.menuOpened > .listes > li{
+.list{
     margin: 0 16px 16px 17px ;
     display: flex;
     font-weight: 400;
     justify-content: space-between;
+
 }
-.menuOpened > .listes > li > .listNbTask{
+.listName{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.listNbTask{
     background-color: #FF7675;
     color: #FFFFFF;
     width: 24px;
@@ -320,7 +335,7 @@ h3, .taskStep, .taskDeadline,.taskNote{
     .griser{
         display: none;
     }
-    .h1Page{
+    .taskNameTitle{
         display: block;
         font-weight: 700;
         font-size: 32px;
@@ -328,10 +343,14 @@ h3, .taskStep, .taskDeadline,.taskNote{
         color: #222222;
         margin-top: 32px;
         margin-left: 32px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     main{
         display: flex;
         min-height: 100vh;
+        width: 100vw;
     }   
     .tasks{
         margin: 27px 16px 0 19px;
@@ -349,6 +368,7 @@ h3, .taskStep, .taskDeadline,.taskNote{
         width: 300px;
     }
     .page{
+        width: 100px;
         flex-grow: 1;
     }
     .close{

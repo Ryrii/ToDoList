@@ -16,15 +16,14 @@ form.onsubmit = async (e) => {
     });
 
     const result = await response;
-    console.log(result.status)
+    // console.log(result.status)
     if (result.status !== 200) {
        idError.style.display = "block";
         password.value =""
 
     }
     else{
-        document.location.href="http://localhost:3000/src/html/home.html";
-
+        document.location.href="http://localhost:3000/src/html/home.html?mail="+mail.value;
     }
     
     

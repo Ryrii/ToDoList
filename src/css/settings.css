@@ -1,0 +1,56 @@
+main{
+overflow: scroll;
+height: 100vh;
+}
+.box{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: scroll;
+}
+.param{
+    display: none;
+    margin-top: 32px;
+    margin-bottom: 48px;
+    color: #222222;
+    font-size: 32px;
+    line-height: 38px;
+    align-items: left;
+    margin-top: 32px;
+
+}
+.form{
+    margin-bottom: 32px;
+    max-width: 350px;
+}
+.form>*{
+    flex-shrink: 1;
+}
+.mail{
+    max-width: 100vw;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mail>.userMail{
+    font-weight: 400;
+}
+.titre2{
+    margin-top: 24px;
+    line-height: 28px;
+}
+@media (min-width: 1024px) { 
+    .box{
+        display: block;
+        margin-left: 32px;
+    }
+    .param{
+        display: block;
+
+    }
+    .titre2{
+        margin-top: 0;
+        line-height: 28px;
+    }
+}
