@@ -9,11 +9,13 @@ body{
 }
 
 main{
+    /* display: block; */
     /* overflow: scroll; */
     height: calc(100vh - 55px);
     /* width: 100vw; */
 }
 .menuOpenedAndGriser{
+    flex-shrink: 0;
     overflow: hidden;
 }
 .box{
@@ -78,4 +80,5 @@ main{
         margin-top: 0;
         line-height: 28px;
     }
+
 }

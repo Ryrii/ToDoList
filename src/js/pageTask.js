@@ -21,7 +21,7 @@ export const main = (title,listId)=>{
     listDelete.innerHTML = `
         <section class="listDeleteAlert">
             <h2>Supprimer la liste ?</h2>
-            <p>Après avoir été supprimée, une liste ne peut pas être récupérée. Êtes-vous certain(e) de vouloir supprimer la liste “Projet tutoré” ?</p>
+            <p>Après avoir été supprimée, une liste ne peut pas être récupérée. Êtes-vous certain(e) de vouloir supprimer la liste "`+title+`" ?</p>
             <div class="listDeleteButtons">
                 <div class="listDeleteButton , deleteList" onclick="deleteListClick()">
                     <div class="listDeleteBin"><img src="../logos/listDeleteBin.svg" alt=""></div>

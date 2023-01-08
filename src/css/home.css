@@ -145,7 +145,7 @@ h3, .taskStep, .taskDeadline,.taskNote{
    margin: 21px 0 0 21px;
 }
 
-.menuOpened > .home{
+.homeMail{
     margin: 38px 19px;
     display: flex;
     font-weight: 700;
@@ -178,6 +178,7 @@ h3, .taskStep, .taskDeadline,.taskNote{
 
 }
 .listName{
+    cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -219,6 +220,7 @@ h3, .taskStep, .taskDeadline,.taskNote{
     margin: auto 19px 24px 19px;
 }
 .menuOpened > .parametre > a, .logoutButton{
+    cursor: pointer;
     align-self: center;
     text-decoration: none;
     color: black;
@@ -353,7 +355,7 @@ h3, .taskStep, .taskDeadline,.taskNote{
         width: 100vw;
     }   
     .tasks{
-        margin: 27px 16px 0 19px;
+        margin: 36px 16px 0 19px;
         border-top: 1px solid #BDBDBD;
     } 
     .modifyTaskAndgriser , .menuOpenedAndGriser {
