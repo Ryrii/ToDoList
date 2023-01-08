@@ -1,5 +1,10 @@
 import * as Main from "./main.js"
 
+const userMail = document.querySelectorAll('.userMail')
+userMail.forEach(userMail => {
+  userMail.textContent = Main.mail
+})
+
 //CLICK LIST
 const listNameClick = (elem)=>{
   const listId = elem.closest(".list").dataset.listId

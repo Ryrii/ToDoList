@@ -1,12 +1,26 @@
+html { 
+    overflow:auto; 
+}
+body{
+    height: 100%;
+    overflow: scroll; 
+
+}
+
 main{
-overflow: scroll;
-height: 100vh;
+    /* overflow: scroll; */
+    height: calc(100vh - 55px);
+    /* width: 100vw; */
+}
+.menuOpenedAndGriser{
+    overflow: hidden;
 }
 .box{
     display: flex;
-    width: 100%;
-    height: 100vh;
-    overflow: scroll;
+    width: 100vw;
+    /* height: 100vh; */
+    /* overflow: scroll; */
+    margin: 0;
 }
 .param{
     display: none;
@@ -22,12 +36,13 @@ height: 100vh;
 .form{
     margin-bottom: 32px;
     max-width: 350px;
+    width: inherit;
 }
 .form>*{
-    flex-shrink: 1;
+    /* flex-shrink: 1; */
 }
 .mail{
-    max-width: 100vw;
+    /* max-width: 100vw; */
     font-weight: 500;
     white-space: nowrap;
     overflow: hidden;
@@ -40,9 +55,18 @@ height: 100vh;
     margin-top: 24px;
     line-height: 28px;
 }
-@media (min-width: 1024px) { 
+.input{
+    /* width: 100%; */
+}
+@media (min-width: 1024px) {
+    main{
+    height: 100vh;
+
+    } 
     .box{
         display: block;
+        height: 100vh;
+        overflow: scroll;
         margin-left: 32px;
     }
     .param{
