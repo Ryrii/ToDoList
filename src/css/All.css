@@ -44,6 +44,11 @@ main{
     font: 500 16px 'Roboto';
     border-color: #ff7675;
   } 
+
+  .buttonsetting{
+    margin-top: 16px;
+  }
+
   .a{
     color: #ff7675;
     font: 400 16px 'Roboto';
