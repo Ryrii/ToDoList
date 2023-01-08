@@ -47,4 +47,9 @@ export const main = (title,listId)=>{
         listDeleteAlertScreen.style.display = "none"
     })
 
+    //suprimer liste mobile
+    const ListDelete = document.querySelector('.listDelete')
+    console.log(ListDelete);
+    ListDelete.style.display = "block"
+
 }

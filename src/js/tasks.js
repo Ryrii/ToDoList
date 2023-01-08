@@ -117,8 +117,8 @@ const createTask = (task, list) => {
     taskElements.append(taskStep, separator, taskDeadline, separator2, taskNote)
     taskDetails.append(taskName, taskElements)
     const bin = createElem('div', 'bin')
-    bin.setAttribute('onclick','binClick(this)')
-    bin.innerHTML = `<img class="taskDelete" src="../logos/bin.svg" alt="">`
+    // bin.setAttribute('onclick','binClick(this)')
+    bin.innerHTML = `<img class="taskDelete" src="../logos/bin.svg" alt="" onclick="binClick(this)">`
     elem.append(check, taskDetails, bin)
     lineText(checkbox,taskName)
     return elem

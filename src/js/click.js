@@ -11,7 +11,6 @@ const listNameClick = (elem)=>{
   const page = document.querySelector('.page')
   PageTask.main(elem.textContent,listId)
   addlistEnter()
-  // page.dataset.listId = listId
   Tasks.init(listId)
   if(window.innerWidth<1024){
     menuOpenedAndGriser.style.display = 'none'
