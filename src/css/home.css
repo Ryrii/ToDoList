@@ -48,6 +48,7 @@ h1{
 
 .tasks{
     margin-top: 24px;
+    border-top: 1px solid #BDBDBD; 
 }
 .task:first-child{
     /* border-top: 1px solid #BDBDBD; */
@@ -69,6 +70,7 @@ h1{
     flex-grow: 1;
     justify-content: space-evenly;
     width: 200px;
+    cursor: pointer;
 }
 .bin{
     justify-content: center;
@@ -204,6 +206,9 @@ h3, .taskStep, .taskDeadline,.taskNote{
     margin-left: 20px;
     gap: 18px;
     margin-bottom: 24px;
+}
+.addList{
+    cursor: pointer;
 }
 .addListInput{
     background-color: transparent;

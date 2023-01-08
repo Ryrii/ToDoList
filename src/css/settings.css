@@ -32,12 +32,12 @@ main{
     color: #222222;
     font-size: 32px;
     line-height: 38px;
-    align-items: left;
+    /* align-items: left; */
     margin-top: 32px;
 
 }
 .form{
-    margin-bottom: 32px;
+    /* margin-bottom: 32px; */
     max-width: 350px;
     width: inherit;
 }
@@ -60,6 +60,9 @@ main{
 }
 .input{
     /* width: 100%; */
+}
+.buttonsetting{
+    margin-bottom: 32px;
 }
 @media (min-width: 1024px) {
     main{
