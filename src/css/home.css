@@ -152,6 +152,9 @@ h3, .taskStep, .taskDeadline,.taskNote{
     gap: 14px;
     
 }
+.home{
+    cursor: pointer;
+}
 .userMail{
     white-space: nowrap;
     overflow: hidden;
