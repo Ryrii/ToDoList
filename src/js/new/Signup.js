@@ -13,26 +13,29 @@ const Iddexist = document.querySelector(".Iddexistant")
 
 form.onsubmit = async (e) => {
     e.preventDefault()
-    if (mdp1.value===mdp2.value) {
-        const response = await fetch('http://localhost:5000/user', {
-            method: 'POST',
-            credentials: "include",
-            body: JSON.stringify({email : (mail.value), password: (password.value)}),
-            headers: { "Content-Type" : "application/json"},
-        });
-        const result = await response.status
-        console.log(result)
-        if (result !== 201) {
-            console.log('');
-
+    if (mail.value!=="" && password.value!=="") {
+        
+        if (mdp1.value===mdp2.value) {
+            const response = await fetch('http://localhost:5000/user', {
+                method: 'POST',
+                credentials: "include",
+                body: JSON.stringify({email : (mail.value), password: (password.value)}),
+                headers: { "Content-Type" : "application/json"},
+            });
+            const result = await response.status
+            console.log(result)
+            if (result !== 201) {
+                console.log('');
+                
+            }
+            else{
+                sucess.style.display = "block"
+                form.reset()
+                
+                
+            }
+            
         }
-        else{
-            sucess.style.display = "block"
-            form.reset()
-
-
-        }
-
     }
 
 }
