@@ -16,9 +16,6 @@ form.onsubmit = async (e) => {
     });
 
     const result = await response;
-    // console.log(result.status)
-    console.log(mail.value!=="");
-    console.log(result.status!== 200);
     if ((result.status === 200)) {
        
         document.location.href="http://localhost:3000/src/html/home.html?mail="+mail.value;
