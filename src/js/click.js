@@ -95,7 +95,7 @@ const plusNbTasks = async (listId)=>{
   const listes = document.querySelector(".listes")
   listes.childNodes.forEach(list => {
     if(list.dataset.listId === listId){
-      list.childNodes[1].innerHTML = parseInt(list.childNodes[1].innerHTML)+1
+      list.childNodes[1].textContent = parseInt(list.childNodes[1].textContent)+1
       list.childNodes[1].style.display = "flex"
     }
   });
@@ -142,8 +142,8 @@ const moinsNbTasks = async (listId)=>{
   const listes = document.querySelector(".listes")
   listes.childNodes.forEach(list => {
     if(list.dataset.listId === listId){
-      list.childNodes[1].innerHTML = parseInt(list.childNodes[1].innerHTML)-1
-      if (list.childNodes[1].innerHTML == 0) {
+      list.childNodes[1].textContent = parseInt(list.childNodes[1].textContent)-1
+      if (list.childNodes[1].textContent == 0) {
         list.childNodes[1].style.display = "none"
       }
       
