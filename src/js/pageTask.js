@@ -49,7 +49,7 @@ export const main = (title,listId)=>{
 
     //suprimer liste mobile
     const ListDelete = document.querySelector('.listDelete')
-    console.log(ListDelete);
+    // console.log(ListDelete);
     ListDelete.style.display = "block"
 
 }

@@ -6,42 +6,33 @@ const createElem = (selector, classList, textContent) => {
     elem.textContent = textContent
     return elem;
 }
-const lineText= (check,text) => {
+export const lineText= (check,text) => {
     if (check.checked === true){
         text.style.textDecoration = "line-through";
         text.style.color = "#666666"
     }
     else{
         text.style.textDecoration = "none";
+        text.style.color = "#222222"
     }
 }
-
+//INITIALISE LES TACHES 
 export const init = async (listId) => {
-    try {
-        const response = await fetch("http://localhost:5000/list/" + listId, {
-            method: "GET",
-            credentials: "include",
-            headers: { "Content-Type": "application/json" }
-        })
-        const list = await response.json()
-        const root = document.querySelector(".tasks")
-        root.innerHTML = ""
-        if (listId === "") {
-            root.append(...initHome(list))
-            // initHome2(list)
-        } else {
-            const listsTask = list.Tasks.map((task) => createTask(task, list))
-            root.append(...listsTask)
-            console.log();
-            // PageTask.main(elem.textContent)
+    const tasks = await getTasks(listId)
+    const root = document.querySelector(".tasks")
+    root.innerHTML = ""
+    if (listId === "") { //PAGE D'ACCEUIL
+        root.append(...initHome(tasks))
+    } else { //PAGE TACHE
+        const listsTask = tasks.Tasks.map((task) => createTask(task, tasks))
+        root.append(...listsTask)
 
-        }
-    } catch (err) {
-        console.error(err)
     }
 
 
 }
+
+//INITIALISATION PAGE D'ACCUEIL
 const initHome = (list) => {
     const allTasks =[]
     list.forEach(list => {
@@ -64,19 +55,24 @@ const initHome = (list) => {
     })
     return allTasks
 }
-// const initHome2 = (lists) => {
-//     lists.forEach(list=>{
-//         list.Tasks.forEach(task=>{
-//             if (task.dueDate!=='à définir') {
-//                 task.dueDate = task.dueDate.slice(0, 10)
-//                 console.log(task);
-//             }
-//         })
-//     })
-// }
 
+//RECUPERE LES TACHES D'UNE LISTE DU SERVEUR 
+export const getTasks = async (listId)=>{
+    try {
+        const response = await fetch("http://localhost:5000/list/" + listId, {
+            method: "GET",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" }
+        })
+        const tasks = await response.json()
+        return tasks 
+
+    } catch (err) {
+        console.error(err)
+    }
+}
 //TACHES
-const createTask = (task, list) => {
+export const createTask = (task, list) => {
     const nbTask = list.Tasks.length
     let taskPlace
     list.Tasks.forEach((elem, i) => {
@@ -152,7 +148,7 @@ export const addTask = async (listId, TaskName) => {
         })
         const data = await response//.json()
         console.log(data)
-        // init(listId)
+        return data.status
     } catch (err) {
         console.error(err)
     }
@@ -169,6 +165,7 @@ export const deleteTask = async (taskId) => {
         })
         const data = await response//.json()
         console.log(data)
+        return data.status
     } catch (err) {
         console.error(err)
     }
@@ -187,6 +184,7 @@ export const checkTask = async (taskId,checked) => {
     })
     const data = await response//.json()
     console.log(data)
+    return data.status
     } catch (err) {
         console.error(err)
     }

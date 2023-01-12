@@ -10,7 +10,7 @@ const listNameClick = (elem)=>{
   const listId = elem.closest(".list").dataset.listId
   const page = document.querySelector('.page')
   PageTask.main(elem.textContent,listId)
-  addlistEnter()
+  addTaskEnter()
   Tasks.init(listId)
   if(window.innerWidth<1024){
     menuOpenedAndGriser.style.display = 'none'
@@ -20,7 +20,7 @@ const listNameClick = (elem)=>{
 }
 
 // AJOUTER TACHE EN APPUYANT SUR ENTRER
-const addlistEnter = ()=>{
+const addTaskEnter = ()=>{
   const addTaskInput = document.querySelector('.addTaskInput')
   addTaskInput.addEventListener('keypress',(event)=>{
     if(event.key === "Enter"){
@@ -30,15 +30,26 @@ const addlistEnter = ()=>{
   })
 }
 
-export const addListClick = ()=>{
+export const addListClick = async ()=>{
   const newList = document.querySelector(".addListInput")
   if(newList.value!==""){
-    Lists.addList(newList.value)
-    Lists.init()
-    newList.value=""
-    newList.focus()
+    if (await Lists.addList(newList.value)===201){
+      // Lists.init() // REINITIALISE LES LISTE
+      addList() 
+      newList.value=""
+      newList.focus()
+    }
   }
 
+}
+
+//AJOUTE LA DERNIER LISE AUX LISTE
+const addList = async ()=>{
+  const listsServer = await Lists.getLists() 
+  const lastList = listsServer[listsServer.length-1]     //RECUPERE LA DERNIERE LISTE CREER
+  const lists = document.querySelector(".listes")
+  const newList = Lists.createList(lastList)
+  lists.append(newList)
 }
 
 const deleteListClick = async()=>{
@@ -52,31 +63,92 @@ export const addNewTaskClick = async ()=>{
   const listId = document.querySelector(".page").dataset.listId
   const newTask = document.querySelector(".addTaskInput")
   if(newTask.value!==""){
-    await Tasks.addTask(listId,newTask.value)
-    Tasks.init(listId)
-    Lists.init()
-    console.log(newTask.value);
-    newTask.value=""
-    newTask.focus()
+    if (await Tasks.addTask(listId,newTask.value)===201){
+      //Tasks.init(listId) // REINITIALISE LES TACHES
+      addTask(listId)
+      // Lists.init() //REINITIALISE LES LISTE POUR AJOUTER 1 A LA LISTE
+      plusNbTasks(listId)
+      newTask.value=""
+      newTask.focus()
+    }
   }
 
+}
+//AJOUTE LA DERNIER TACHE AUX TACHES
+const addTask = async (listId)=>{
+  const listsServer = await Lists.getLists() 
+  let listCurrent
+  listsServer.forEach(listServer =>{
+    if (listServer.id==listId) {
+      listCurrent = listServer
+    }
+  })
+  const tasksServer = await Tasks.getTasks(listId) 
+  const lastTask = tasksServer.Tasks[tasksServer.Tasks.length-1]     //RECUPERE LA DERNIERE TACHE CREER
+  const tasks = document.querySelector(".tasks")
+  const newTask = Tasks.createTask(lastTask,listCurrent)
+  tasks.append(newTask)
+}
+
+//AJOUTE 1 A LA LISTE 
+const plusNbTasks = async (listId)=>{
+  const listes = document.querySelector(".listes")
+  listes.childNodes.forEach(list => {
+    if(list.dataset.listId === listId){
+      list.childNodes[1].innerHTML = parseInt(list.childNodes[1].innerHTML)+1
+      list.childNodes[1].style.display = "flex"
+    }
+  });
 }
 
 const taskCheckboxClick = async(elem,e)=>{
   e.preventDefault()
   const taskId = elem.closest(".task").dataset.taskId
   const listId = elem.closest(".page").dataset.listId
-  console.log(taskId);
-  await Tasks.checkTask(taskId,elem.checked)
-  Tasks.init(listId)
+  if (await Tasks.checkTask(taskId,elem.checked)===200){
+    // Tasks.init(listId) //REINITIALISE TOUTES LES TACHES
+    await checkTask(elem)
+
+  }
 }
+// COCHE ET BARRE LA TACHES COCHÉE
+const checkTask = async (elem)=>{
+  const taskId = elem.closest(".task").dataset.taskId
+  const listId = elem.closest(".page").dataset.listId
+  const tasksServer = await Tasks.getTasks(listId) 
+  tasksServer.Tasks.forEach(task => {
+    if(task.id == taskId){
+      elem.checked = task.done
+      const taskName = elem.parentElement.nextSibling.firstChild
+      Tasks.lineText(elem,taskName)
+    }
+  });
+}
+
+
 
 const binClick = async (elem)=>{
   const taskId = elem.closest(".task").dataset.taskId
   const listId = elem.closest(".page").dataset.listId
-  await Tasks.deleteTask(taskId)
-  Tasks.init(listId)
-  Lists.init()
+  if (await Tasks.deleteTask(taskId)===200){
+    Tasks.init(listId)
+    //Lists.init() //REINITIALISE LES LISTES
+    await moinsNbTasks(listId)
+  }
+}
+
+//RETIRE 1 A LA LISTE 
+const moinsNbTasks = async (listId)=>{
+  const listes = document.querySelector(".listes")
+  listes.childNodes.forEach(list => {
+    if(list.dataset.listId === listId){
+      list.childNodes[1].innerHTML = parseInt(list.childNodes[1].innerHTML)-1
+      if (list.childNodes[1].innerHTML == 0) {
+        list.childNodes[1].style.display = "none"
+      }
+      
+    }
+  });
 }
 
 const taskDetailsClick = (elem)=>{

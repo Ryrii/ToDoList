@@ -1,25 +1,31 @@
 
-
+// INITIALISE LES LISTES
 export const init = async () => {
+    const lists = await getLists()
+    const root = document.querySelector(".listes")
+    root.innerHTML = ""
+    const listsElem = lists.map((list) => createList(list))
+    root.append(...listsElem)
+}
 
+//RECUPERE LES LISTES DU SERVEUR 
+export const getLists = async ()=>{
     try {
         const response = await fetch("http://localhost:5000/list", {
             method: "GET",
             credentials: "include",
             headers:{"Content-Type": "application/json"}
           })
-
         const lists = await response.json()
-        const root = document.querySelector(".listes")
-        root.innerHTML = ""
-        const listsElem = lists.map((list) => createList(list))
-        root.append(...listsElem)
+        return lists
+
       } catch (err) {
         console.error(err)
       }  
 }
 
-const createList = (list) => {
+// CREER LES LISTES
+export const createList = (list) => {
     const elem = document.createElement("li")
     elem.classList.add('list')
     elem.dataset.listId = list.id
@@ -29,9 +35,10 @@ const createList = (list) => {
     listName.textContent = list.name
     listName.setAttribute('onclick','listNameClick(this)')
     const listNbTask = document.createElement('p')
-    if (list.Tasks.length != 0) {
-        listNbTask.classList.add('listNbTask')
-        listNbTask.textContent = list.Tasks.length
+    listNbTask.classList.add('listNbTask')
+    listNbTask.textContent = list.Tasks.length
+    if (list.Tasks.length === 0) {
+        listNbTask.style.display = "none"
     }
     elem.append(listName,listNbTask)
 
@@ -50,7 +57,8 @@ export const addList = async(listName)=>{
             })
         })
         const data = await response//.json()
-        console.log(data)
+        console.log(data);
+        return data.status
     
     } catch (err) {
         console.error(err)

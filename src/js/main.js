@@ -104,7 +104,7 @@ Lists.init()
 
 let listId = params.get("listId")
 let listName = params.get("listName")
-console.log(window.location.pathname!=='/src/html/settings.html');
+// console.log(window.location.pathname!=='/src/html/settings.html');
 if (window.location.pathname!=='/src/html/settings.html') {
   if(listId === null){
     Tasks.init("")

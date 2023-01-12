@@ -189,7 +189,7 @@ h3, .taskStep, .taskDeadline,.taskNote{
     display: flex;
     font-weight: 400;
     justify-content: space-between;
-
+    height: 24px;
 }
 .listName{
     cursor: pointer;
