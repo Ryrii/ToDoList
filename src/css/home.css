@@ -157,7 +157,7 @@ h3, .taskStep, .taskDeadline,.taskNote{
 }
 
 .homeMail{
-    margin: 38px 19px;
+    margin: 38px 19px 28px;
     display: flex;
     font-weight: 700;
     gap: 14px;
@@ -360,7 +360,7 @@ h3, .taskStep, .taskDeadline,.taskNote{
         font-size: 32px;
         line-height: 38px;
         color: #222222;
-        margin-top: 32px;
+        margin-top: 37px ;
         margin-left: 32px;
         white-space: nowrap;
         overflow: hidden;
@@ -372,7 +372,7 @@ h3, .taskStep, .taskDeadline,.taskNote{
         width: 100vw;
     }   
     .tasks{
-        margin: 36px 16px 0 19px;
+        margin: 22px 16px 0 19px;
         border-top: 1px solid #BDBDBD;
     } 
     .modifyTaskAndgriser , .menuOpenedAndGriser {
