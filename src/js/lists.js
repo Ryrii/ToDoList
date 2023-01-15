@@ -48,7 +48,7 @@ export const createList = (list) => {
 //AJOUTER LISTE
 export const addList = async(listName)=>{
     try {
-        const response = await fetch("http://localhost:5000/list", {
+        const data = await fetch("http://localhost:5000/list", {
             method: "POST",
             credentials: "include",
             headers:{"Content-Type": "application/json"},
@@ -56,7 +56,7 @@ export const addList = async(listName)=>{
                 name: listName
             })
         })
-        const data = await response//.json()
+        // const data = await response//.json()
         console.log(data);
         return data.status
     

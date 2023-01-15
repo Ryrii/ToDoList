@@ -2,9 +2,9 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Roboto';
+    font-family: "Roboto" , "sans-serif";
     font-style: normal;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 19px;
     color: #222222;
 }
@@ -40,7 +40,7 @@ button{
 h1{
     
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1,125rem;
     color: #FFFFFF;
 }
 .listDelete{
@@ -55,9 +55,6 @@ h1{
 .tasks{
     margin-top: 24px;
     border-top: 1px solid #BDBDBD; 
-}
-.task:first-child{
-    /* border-top: 1px solid #BDBDBD; */
 }
 .task{
     display: flex;
@@ -89,10 +86,10 @@ h1{
 }
 h3{
     color: #222222;
-    font-family: 'Roboto';
+    font-family: "Roboto" , "sans-serif";
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 .taskElements{
     display: flex;
@@ -101,7 +98,7 @@ h3{
 .taskElements > *{
     font-weight: 400;
     color: #666666;
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 h3, .taskStep, .taskDeadline,.taskNote{
     white-space: nowrap;
@@ -204,7 +201,7 @@ h3, .taskStep, .taskDeadline,.taskNote{
     height: 24px;
     border-radius: 3px;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 0.75rem;
     flex-shrink: 0;    
     display: flex;
     justify-content: center; 
@@ -357,7 +354,7 @@ h3, .taskStep, .taskDeadline,.taskNote{
     .taskNameTitle{
         display: block;
         font-weight: 700;
-        font-size: 32px;
+        font-size: 2rem;
         line-height: 38px;
         color: #222222;
         margin-top: 37px ;

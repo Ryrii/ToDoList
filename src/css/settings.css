@@ -9,8 +9,6 @@ body{
 }
 
 main{
-    /* display: block; */
-    /* overflow: scroll; */
     height: calc(100vh - 55px);
     /* width: 100vw; */
 }
@@ -30,7 +28,7 @@ main{
     margin-top: 32px;
     margin-bottom: 48px;
     color: #222222;
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 38px;
     /* align-items: left; */
     margin-top: 32px;
@@ -40,9 +38,6 @@ main{
     /* margin-bottom: 32px; */
     max-width: 350px;
     width: inherit;
-}
-.form>*{
-    /* flex-shrink: 1; */
 }
 .mail{
     /* max-width: 100vw; */
@@ -58,9 +53,7 @@ main{
     margin-top: 24px;
     line-height: 28px;
 }
-.input{
-    /* width: 100%; */
-}
+
 .buttonsetting{
     margin-bottom: 32px;
 }

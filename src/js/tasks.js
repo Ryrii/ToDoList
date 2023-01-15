@@ -6,12 +6,12 @@ const createElem = (selector, classList, textContent) => {
     elem.textContent = textContent
     return elem;
 }
-export const lineText= (check,text) => {
-    if (check.checked === true){
+export const lineText = (check, text) => {
+    if (check.checked === true) {
         text.style.textDecoration = "line-through";
         text.style.color = "#666666"
     }
-    else{
+    else {
         text.style.textDecoration = "none";
         text.style.color = "#222222"
     }
@@ -34,17 +34,17 @@ export const init = async (listId) => {
 
 //INITIALISATION PAGE D'ACCUEIL
 const initHome = (list) => {
-    const allTasks =[]
+    const allTasks = []
     list.forEach(list => {
         // TRIER LES TACHE PAR ID DANS SERVEUR MAL TRIER QUAND CHECKED
         list.Tasks.sort(function (a, b) {
-                return a.id - b.id;
-            })
+            return a.id - b.id;
+        })
         // CREER LES TACHES POUR QU'IL Y AIT '1 sur 4', '2 sur 4' ...
         const listTasks = list.Tasks.map((task) => createTask(task, list))
         // RECUPERER SEULEMENT CE QUI ONT ECHEANCE
         listTasks.forEach(task => {
-            if(task.dataset.dueDate!=='à définir'){
+            if (task.dataset.dueDate !== 'à définir') {
                 allTasks.push(task)
             }
         });
@@ -57,7 +57,7 @@ const initHome = (list) => {
 }
 
 //RECUPERE LES TACHES D'UNE LISTE DU SERVEUR 
-export const getTasks = async (listId)=>{
+export const getTasks = async (listId) => {
     try {
         const response = await fetch("http://localhost:5000/list/" + listId, {
             method: "GET",
@@ -65,7 +65,7 @@ export const getTasks = async (listId)=>{
             headers: { "Content-Type": "application/json" }
         })
         const tasks = await response.json()
-        return tasks 
+        return tasks
 
     } catch (err) {
         console.error(err)
@@ -101,7 +101,7 @@ export const createTask = (task, list) => {
 
     const taskDetails = createElem('div', 'taskDetails')
     taskDetails.setAttribute("data-list", "checkbox")
-    taskDetails.setAttribute('onclick','taskDetailsClick(this)')
+    taskDetails.setAttribute('onclick', 'taskDetailsClick(this)')
     const taskName = createElem('h3', 'taskName', task.name)
     const taskElements = createElem('div', 'taskElements')
     const taskStep = createElem('div', 'taskStep', taskPlace + " sur " + nbTask)
@@ -116,22 +116,22 @@ export const createTask = (task, list) => {
     // bin.setAttribute('onclick','binClick(this)')
     bin.innerHTML = `<img class="taskDelete" src="../logos/bin.svg" alt="" onclick="binClick(this)">`
     elem.append(check, taskDetails, bin)
-    lineText(checkbox,taskName)
+    lineText(checkbox, taskName)
     return elem
 }
-const dueDate = (taskDueDate)=>{
+const dueDate = (taskDueDate) => {
     const date1 = new Date()
     const date2 = new Date(taskDueDate)
-    const tmp = date2-date1
-    const diff = Math.floor(tmp/86400000)+1
-    if (diff===0) {
-      return "aujourd'hui"
-    }else if (diff===1){
-      return "demain"
-    }else if (diff>1){
-      return "dans "+diff+" jours"
-    }else{
-      return taskDueDate
+    const tmp = date2 - date1
+    const diff = Math.floor(tmp / 86400000) + 1
+    if (diff === 0) {
+        return "aujourd'hui"
+    } else if (diff === 1) {
+        return "demain"
+    } else if (diff > 1) {
+        return "dans " + diff + " jours"
+    } else {
+        return taskDueDate
     }
 }
 
@@ -172,19 +172,19 @@ export const deleteTask = async (taskId) => {
 }
 
 //CHECKED
-export const checkTask = async (taskId,checked) => {
+export const checkTask = async (taskId, checked) => {
     try {
         const response = await fetch("http://localhost:5000/task/" + taskId, {
-        method: "PUT",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            done: checked
+            method: "PUT",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                done: checked
+            })
         })
-    })
-    const data = await response//.json()
-    console.log(data)
-    return data.status
+        const data = await response//.json()
+        console.log(data)
+        return data.status
     } catch (err) {
         console.error(err)
     }

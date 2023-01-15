@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap'); 
 body{
     margin: 0;
     background:#FDFDFD;
@@ -25,8 +25,8 @@ main{
     border-width: 1px;
     width: 350px; 
     height: 48px;
-    font-family: "Roboto";
-    font-size: 16px;
+    font-family: "Roboto" , "sans-serif"; 
+    font-size: 1rem;
     line-height: 19px;  
     padding-left: 16px;
 
@@ -34,14 +34,14 @@ main{
   label{
     color: #222222;
     text-align: left;
-    font: 400 16px 'Roboto';
+    font: 400 16px "Roboto" , "sans-serif";
   }
   .button{
     max-width: 350px; height: 48px;
     background: #ff7675;
     border-radius: 4px;
     color: #ffffff;
-    font: 500 16px 'Roboto';
+    font: 500 16px "Roboto" , "sans-serif";
     border-color: #ff7675;
   } 
 
@@ -51,7 +51,7 @@ main{
 
   .a{
     color: #ff7675;
-    font: 400 16px 'Roboto';
+    font: 400 16px "Roboto" , "sans-serif";
     text-decoration: none;
  }
 form{
@@ -66,7 +66,7 @@ form{
 }
  
 .messError{
-  font-family: 'Roboto';
+  font-family:  "Roboto" , "sans-serif";
   display: none;
   color: #D63031;
   margin: 0;
@@ -76,7 +76,7 @@ form{
  }
 
  .messError2{
-  font-family: 'Roboto';
+  font-family: "Roboto" , "sans-serif";
   display: none;
   color: #27AE60;
   text-align: center;
@@ -85,23 +85,23 @@ form{
 
  .b{
   color:#27AE60;
-  font: 400 16px 'Roboto';
+  font: 400 16px "Roboto" , "sans-serif";
   text-decoration: none;
 }
 
 .titre{
-  font-family: 'Roboto';
-  font-size: 24px;
+  font-family: "Roboto" , "sans-serif";
+  font-size: 1,5rem;
   margin: 0;
 
 }
 .titre2{
-  font-family: 'Roboto';
-  font-size: 24px;
+  font-family: "Roboto" , "sans-serif";
+  font-size: 1,5rem;
   margin: 0;
 }
 .idError{
-  font-family: 'Roboto';
+  font-family: "Roboto" , "sans-serif";
   padding-top: 14px;
   color: #D63031;
   display: none;
@@ -109,7 +109,7 @@ form{
   text-align: center;
 }
 .Iddexistant{
-  font-family: 'Roboto';
+  font-family: "Roboto" , "sans-serif";
   display: none;
   color: #D63031;
   margin: 0;
